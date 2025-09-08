@@ -64,7 +64,6 @@ export const Mailchimp: React.FC<React.ComponentProps<typeof Column>> = ({ ...fl
 		formState: { errors, isSubmitting },
 		...form
 	} = useForm<FormValues>({
-		mode: 'onChange',
 		defaultValues: {
 			clientName: '',
 			isCompany: false,
@@ -334,8 +333,8 @@ export const Mailchimp: React.FC<React.ComponentProps<typeof Column>> = ({ ...fl
 						<input tabIndex={-1} autoComplete='off' {...register('honeypot')} />
 					</div>
 
-					<Row height='48' vertical='center'>
-						<Button size='m' suffixIcon='send' fillWidth type='submit' disabled={isSubmitting}>
+					<Row  vertical='center' marginTop='20'>
+						<Button size='m' variant='primary' suffixIcon='send' fillWidth type='submit' disabled={isSubmitting}>
 							{isSubmitting ? 'Sending...' : 'Send'}
 						</Button>
 					</Row>
