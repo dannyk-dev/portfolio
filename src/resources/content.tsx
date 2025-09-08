@@ -1,45 +1,38 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import type { About, Blog, Gallery, Home, Newsletter, Person, Social, Work, FAQ } from "@/types";
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
-  avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  firstName: "Kardan",
+  lastName: "Dev",
+  name: "kardan.dev",
+  role: "Software Development Studio",
+  avatar: "/images/logo.jpg",
+  email: "contact@kardan.dev",
+  location: "America/Sao_Paulo",
+  languages: ["English", "Portuguese"],
 };
 
 const newsletter: Newsletter = {
   display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  title: <>Subscribe to {person.name}'s Newsletter</>,
+  description: <>Actionable insights on SaaS, modern software, and digital strategy.</>,
 };
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
-  {
-    name: "GitHub",
-    icon: "github",
-    link: "https://github.com/once-ui-system",
-  },
-  {
-    name: "LinkedIn",
-    icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
-  },
-  {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
-  },
   {
     name: "Email",
     icon: "email",
     link: `mailto:${person.email}`,
+  },
+  {
+    name: "Instagram",
+    icon: "instagram",
+    link: "dannyk-dev",
+  },
+  {
+    name: "Facebook",
+    icon: "facebook",
+    link: "facebook",
   },
 ];
 
@@ -47,32 +40,28 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  title: `${person.name} – Software Studio`,
+  description:
+    "kardan.dev is a Brazil-based software studio specializing in SaaS, websites, and ecommerce solutions. Operated by a solo developer with an on-demand team, we deliver scalable digital products tailored to each client.",
+  headline: <>We build SaaS, websites, and ecommerce platforms that scale</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong className="ml-4">kardan.dev</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Featured work
+          Featured Project
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work/our-saas-products",
   },
   subline: (
     <>
-      I'm Selene, a design engineer at{" "}
-      <Logo
-        dark
-        icon="/trademarks/wordmark-dark.svg"
-        style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}
-      />
-      , where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      <strong>kardan.dev</strong> is a Brazil-based software studio run by a solo developer with an
+      on-demand team. Projects are executed lean and efficiently, scaling resources only when needed
+      — delivering high-quality software without unnecessary overhead.
     </>
   ),
 };
@@ -81,7 +70,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  description: `Discover how ${person.name} builds SaaS products and digital solutions with a scalable, on-demand team structure.`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -91,139 +80,107 @@ const about: About = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://cal.com/kardan",
   },
   intro: {
     display: true,
-    title: "Introduction",
+    title: "Who We Are",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        <strong>kardan.dev</strong> is a software development studio based in Brazil. Founded and
+        operated by a solo developer, the studio specializes in SaaS, web applications, and
+        ecommerce platforms. The delivery model is intentionally lean: once a project scope is
+        defined, I assess the required resources. Smaller projects are executed solo, while larger
+        initiatives are supported by a curated network of outsourced professionals. This flexible
+        structure provides the efficiency of a boutique studio with the capability of a full-scale
+        team.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
-    title: "Work Experience",
+    display: true,
+    title: "Core Expertise",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "kardan.dev",
+        timeframe: "2022 – Present",
+        role: "Software Development Studio",
         achievements: [
-          <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
-          </>,
-          <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
-          </>,
+          "Built and maintained proprietary SaaS products serving diverse industries.",
+          "Delivered websites, ecommerce platforms, and SaaS applications for startups and established businesses.",
+          "Scaled delivery capacity through an on-demand network of developers, designers, and consultants.",
         ],
         images: [
-          // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
+            src: "/images/projects/saas-product.jpg",
+            alt: "Our SaaS Product",
             width: 16,
             height: 9,
           },
         ],
-      },
-      {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
-        achievements: [
-          <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
-          </>,
-        ],
-        images: [],
       },
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
+    display: false,
     title: "Studies",
-    institutions: [
-      {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
-      },
-    ],
+    institutions: [],
   },
   technical: {
-    display: true, // set to false to hide this section
-    title: "Technical skills",
+    display: true,
+    title: "Services",
     skills: [
       {
-        title: "Figma",
+        title: "Websites",
         description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+          <>
+            High-performance landing pages and corporate websites, optimized for speed and
+            conversion.
+          </>
         ),
         tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
+          { name: "Next.js", icon: "nextjs" },
+          { name: "Vercel", icon: "vercel" },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        title: "Next.js",
+        title: "Ecommerce Platforms",
         description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
+          <>
+            Custom ecommerce websites with secure payment integrations, logistics, and analytics
+            support.
+          </>
         ),
         tags: [
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
-          },
+          { name: "Shopify", icon: "shopify" },
+          { name: "Stripe", icon: "stripe" },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
+        images: [],
+      },
+      {
+        title: "SaaS Applications",
+        description: (
+          <>Design and development of SaaS products — from MVPs to production-scale platforms.</>
+        ),
+        tags: [
+          { name: "Supabase", icon: "supabase" },
+          { name: "React", icon: "react" },
         ],
-      },  
+        images: [],
+      },
+      {
+        title: "Extended Services",
+        description: (
+          <>
+            Through strategic partners, we offer{" "}
+            <strong>branding, graphic design, social media management, and consulting</strong> to
+            complement software delivery.
+          </>
+        ),
+        tags: [{ name: "Branding" }, { name: "Consulting" }, { name: "Marketing" }],
+        images: [],
+      },
     ],
   },
 };
@@ -231,70 +188,68 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
+  title: "Insights on SaaS and Software Development",
+  description: `Practical insights from ${person.name} on building SaaS, scaling software, and digital business strategy.`,
 };
 
 const work: Work = {
   path: "/work",
   label: "Work",
-  title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /work routes
+  title: `Case Studies – ${person.name}`,
+  description: `Selected SaaS products and client projects delivered by ${person.name}.`,
 };
 
 const gallery: Gallery = {
   path: "/gallery",
   label: "Gallery",
-  title: `Photo gallery – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
+  title: `Visual Showcase – ${person.name}`,
+  description:
+    "A collection of visuals from our SaaS products, client work, and design explorations.",
   images: [
+    { src: "/images/gallery/horizontal-1.jpg", alt: "image", orientation: "horizontal" },
+    { src: "/images/gallery/vertical-4.jpg", alt: "image", orientation: "vertical" },
+    { src: "/images/gallery/horizontal-3.jpg", alt: "image", orientation: "horizontal" },
+    { src: "/images/gallery/vertical-1.jpg", alt: "image", orientation: "vertical" },
+  ],
+};
+
+const faq: FAQ = {
+  path: "/faq",
+  label: "FAQ",
+  title: `Frequently Asked Questions – ${person.name}`,
+  description: `Answers to common questions about working with ${person.name}.`,
+  questions: [
     {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
-      orientation: "horizontal",
+      question: "Who operates kardan.dev?",
+      answer:
+        "kardan.dev is operated by a solo developer based in Brazil. Depending on project requirements, the studio scales by assembling an outsourced team of developers, designers, and consultants.",
     },
     {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
-      orientation: "vertical",
+      question: "How do you adapt to different project sizes?",
+      answer:
+        "Every engagement starts with a detailed scope. Small and medium projects are typically handled directly by the founder. For larger initiatives, an on-demand team is formed to match the required expertise and capacity.",
     },
     {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
-      orientation: "horizontal",
+      question: "What services do you provide?",
+      answer:
+        "Our core services include SaaS development, custom websites, and ecommerce platforms. Extended services — such as branding, design, social media, and consulting — are delivered through trusted partners.",
     },
     {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
-      orientation: "vertical",
+      question: "Do you only work with Brazilian clients?",
+      answer:
+        "No. While based in Brazil, kardan.dev collaborates with clients worldwide. All projects are managed remotely with clear communication and delivery processes.",
     },
     {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
-      orientation: "vertical",
+      question: "Can you handle both MVPs and long-term projects?",
+      answer:
+        "Yes. We work with startups needing rapid MVPs as well as established companies requiring scalable, long-term software solutions.",
     },
     {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
-      orientation: "vertical",
+      question: "How can I get started?",
+      answer:
+        "You can reach out directly at contact@kardan.dev or schedule a call through our calendar. After discussing your goals, we’ll propose a solution and determine the appropriate delivery setup.",
     },
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, home, about, blog, work, gallery, faq };

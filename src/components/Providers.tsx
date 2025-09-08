@@ -1,28 +1,34 @@
 "use client";
 
 import {
-  BorderStyle,
-  ChartMode,
-  ChartVariant,
+  type BorderStyle,
+  type ChartMode,
+  type ChartVariant,
   DataThemeProvider,
   IconProvider,
   LayoutProvider,
-  NeutralColor,
-  ScalingSize,
-  Schemes,
-  SolidStyle,
-  SolidType,
-  SurfaceStyle,
+  type NeutralColor,
+  type ScalingSize,
+  type Schemes,
+  type SolidStyle,
+  type SolidType,
+  type SurfaceStyle,
   ThemeProvider,
   ToastProvider,
-  TransitionStyle,
+  type TransitionStyle,
 } from "@once-ui-system/core";
 import { style, dataStyle } from "../resources";
 import { iconLibrary } from "../resources/icons";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <LayoutProvider>
+    <LayoutProvider
+      breakpoints={{
+        s: 640,
+        m: 1024,
+        l: 1200,
+      }}
+    >
       <ThemeProvider
         brand={style.brand as Schemes}
         accent={style.accent as Schemes}

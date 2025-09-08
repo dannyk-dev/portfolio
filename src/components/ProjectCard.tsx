@@ -2,6 +2,7 @@
 
 import {
   AvatarGroup,
+  Badge,
   Carousel,
   Column,
   Flex,
@@ -19,6 +20,7 @@ interface ProjectCardProps {
   description: string;
   avatars: { src: string }[];
   link: string;
+  projectType?: string;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -29,6 +31,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   description,
   avatars,
   link,
+  projectType,
 }) => {
   return (
     <Column fillWidth gap="m">
@@ -56,7 +59,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         )}
         {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
           <Column flex={7} gap="16">
-            {avatars?.length > 0 && <AvatarGroup avatars={avatars} size="m" reverse />}
+            {projectType && (
+              <Badge paddingX="12" icon="business" paddingY="8">
+                {projectType}
+              </Badge>
+            )}
             {description?.trim() && (
               <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
                 {description}

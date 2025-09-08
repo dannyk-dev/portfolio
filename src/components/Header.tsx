@@ -3,7 +3,17 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
+import {
+  Button,
+  Fade,
+  Flex,
+  Icon,
+  IconButton,
+  Line,
+  Row,
+  Text,
+  ToggleButton,
+} from "@once-ui-system/core";
 
 import { routes, display, person, about, blog, work, gallery } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
@@ -72,8 +82,14 @@ export const Header = () => {
           position: "fixed",
         }}
       >
-        <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
-          {display.location && <Row s={{ hide: true }}>{person.location}</Row>}
+        <Row
+          s={{ hide: true }}
+          paddingLeft="12"
+          fillWidth
+          vertical="center"
+          textVariant="body-default-s"
+        >
+          <Text>KD</Text>
         </Row>
         <Row fillWidth horizontal="center">
           <Row
@@ -147,7 +163,7 @@ export const Header = () => {
                   </Row>
                 </>
               )}
-              {routes["/gallery"] && (
+              {/* {routes["/gallery"] && (
                 <>
                   <Row s={{ hide: true }}>
                     <ToggleButton
@@ -165,7 +181,7 @@ export const Header = () => {
                     />
                   </Row>
                 </>
-              )}
+              )} */}
               {display.themeSwitcher && (
                 <>
                   <Line background="neutral-alpha-medium" vert maxHeight="24" />
@@ -175,19 +191,31 @@ export const Header = () => {
             </Row>
           </Row>
         </Row>
-        <Flex fillWidth horizontal="end" vertical="center">
-          <Flex
-            paddingRight="12"
-            horizontal="end"
+        {/* <Row>
+          <Button suffixIcon="contact" size="s">
+            Schedule a call
+          </Button>
+        </Row> */}
+        <Row fillWidth horizontal="end" vertical="center" s={{ hide: true }}>
+          <Row
+            s={{ hide: true }}
+            fitWidth
             vertical="center"
-            textVariant="body-default-s"
-            gap="20"
+            border="brand-alpha-medium"
+            background="brand-alpha-weak"
+            radius="full"
+            padding="4"
+            gap="8"
+            className={styles.blockAlign}
+            style={{
+              backdropFilter: "blur(var(--static-space-1))",
+            }}
           >
-            <Flex s={{ hide: true }}>
-              {display.time && <TimeDisplay timeZone={person.location} />}
-            </Flex>
-          </Flex>
-        </Flex>
+            <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
+            <Row paddingX="8">Schedule a call</Row>
+            <IconButton data-border="rounded" variant="secondary" icon="chevronRight" />
+          </Row>
+        </Row>
       </Row>
     </>
   );
