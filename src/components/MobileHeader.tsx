@@ -5,13 +5,14 @@ const MobileHeader = () => {
   return (
     <Row
       fitHeight
-      position="fixed"
+      position="relative"
       as="header"
       zIndex={9}
       fillWidth
       padding="8"
       horizontal="center"
       data-border="rounded"
+      hide
       s={{
         hide: false,
       }}
