@@ -42,6 +42,18 @@ export type Newsletter = {
   description: React.ReactNode;
 };
 
+export type Contact = {
+  title: string;
+  description: string;
+  labels: {
+    clientName: string;
+    isCompany: string;
+    companyName: string;
+    industry: string;
+    serviceType: string;
+  }
+}
+
 /**
  * Social link configuration.
  */

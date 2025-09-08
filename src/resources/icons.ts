@@ -40,7 +40,8 @@ import {
   FaInstagram,
 } from "react-icons/fa6";
 import { HiOutlineChatAlt2 } from "react-icons/hi";
-import { IoBusiness, IoBusinessOutline } from "react-icons/io5";
+import { IoBusiness, IoBusinessOutline, IoSend } from "react-icons/io5";
+import { BiChevronDown, BiSend } from "react-icons/bi";
 
 export const iconLibrary: Record<string, IconType> = {
   arrowUpRight: HiArrowUpRight,
@@ -78,6 +79,8 @@ export const iconLibrary: Record<string, IconType> = {
   contact: HiOutlineChatAlt2,
   houseRealEstate: FaHouseLaptop,
   business: IoBusiness,
+  send: BiSend,
+  chevronDown: BiChevronDown
 };
 
 export type IconLibrary = typeof iconLibrary;

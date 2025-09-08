@@ -1,4 +1,4 @@
-import type { About, Blog, Gallery, Home, Newsletter, Person, Social, Work, FAQ } from "@/types";
+import type { About, Blog, Gallery, Home, Newsletter, Person, Social, Work, FAQ, Contact } from "@/types";
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
@@ -17,6 +17,18 @@ const newsletter: Newsletter = {
   title: <>Subscribe to {person.name}'s Newsletter</>,
   description: <>Actionable insights on SaaS, modern software, and digital strategy.</>,
 };
+
+const contact: Contact = {
+  title: "Let's get in touch!",
+  description: "Fill the in the form below, and we'll get back to you as soon as possible.",
+  labels: {
+    clientName: "Full name",
+    companyName: "Your Company Name",
+    industry: "What industry do you operate in?",
+    isCompany: "Are you a company?",
+    serviceType: "What type of service do you require?"
+  }
+}
 
 const social: Social = [
   {
@@ -252,4 +264,4 @@ const faq: FAQ = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery, faq };
+export { person, social, newsletter, home, about, blog, work, gallery, faq, contact };
