@@ -1,0 +1,45 @@
+---
+title: "UX Audits that Increase Conversion"
+summary: "Our heuristic evaluation + data review process to remove friction and raise revenue."
+publishedAt: "2025-09-01"
+tag: "UX"
+---
+
+## What we audit
+
+- Navigation clarity, copy, and affordances
+- Form friction and error handling
+- Performance and perceived speed
+
+## Audit template
+
+<CodeBlock
+  marginBottom="16"
+  highlight="5-8"
+  codes={[
+    {
+      code:
+`# audit.yml
+pages:
+  - path: "/pricing"
+    goals: ["increase trial starts"]
+checks:
+  - id: "cta-contrast"
+  - id: "pricing-anchoring"
+  - id: "faq-objections"
+  - id: "perf-lcp"
+evidence:
+  screenshots: true
+  session_replays: true`,
+      language: "yaml",
+      label: "docs/audit.yml"
+    }
+  ]}
+/>
+
+## Outcomes
+
+- Prioritized issues with expected impact
+- A/B test plan and success thresholds
+
+---

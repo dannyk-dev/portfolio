@@ -1,0 +1,63 @@
+---
+title: "Integration Playbook: Shipping Reliable APIs the First Time"
+summary: "Our method to integrate Stripe, HubSpot, and internal systems without outages or data drift."
+publishedAt: "2025-09-06"
+tag: "Engineering"
+---
+
+## Principles
+
+- Contract-first
+- Idempotent handlers
+- Observability from day zero
+
+## OpenAPI-first
+
+<CodeBlock
+  marginBottom="16"
+  codes={[
+    {
+      code:
+`openapi: 3.1.0
+info: { title: Billing API, version: 1.0.0 }
+paths:
+  /invoices/{id}:
+    get:
+      parameters: [{ name: id, in: path, required: true, schema: { type: string } }]
+      responses: { "200": { description: ok } }`,
+      language: "yaml",
+      label: "apis/billing/openapi.yaml"
+    }
+  ]}
+/>
+
+## Idempotency and retries
+
+- Use idempotency keys for POST/PUT
+- Retries with exponential backoff
+- Poison-queue + dead-letter alerts
+
+## Runbook snippet
+
+<CodeBlock
+  marginBottom="16"
+  codes={[
+    {
+      code:
+`# runbook.md
+symptom: "webhook spikes 5xx"
+checks:
+  - "rate limits changed?"
+  - "provider status page"
+  - "DLQ volume > threshold"
+rollback:
+  - "disable consumer"
+  - "replay subset in staging"
+  - "hotfix, then backfill"`,
+      language: "markdown",
+      label: "docs/runbook.md"
+    }
+  ]}
+/>
+
+---

@@ -1,0 +1,38 @@
+---
+title: "Migrations with Zero Downtime"
+summary: "Blue–green, dual-write, and backfill strategies that let you migrate safely."
+publishedAt: "2025-08-31"
+tag: "Platform"
+---
+
+## Core moves
+
+- Dual-write → verify → cutover
+- Backfill with idempotent jobs
+- Feature flags for progressive exposure
+
+## Plan skeleton
+
+<CodeBlock
+  marginBottom="16"
+  codes={[
+    {
+      code:
+`# migrate.md
+1. Add dual-write (old + new store)
+2. Ship read-through cache for new store
+3. Backfill historical data (chunked, retryable)
+4. Shadow reads + compare metrics
+5. Flip reads to new store (flag)
+6. Decommission old writes`,
+      language: "markdown",
+      label: "docs/migrate.md"
+    }
+  ]}
+/>
+
+## Telemetry
+
+- Compare P95 latency, error rate, and data drift before/after cutover
+
+---

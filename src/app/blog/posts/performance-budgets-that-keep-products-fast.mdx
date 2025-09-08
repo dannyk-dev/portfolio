@@ -1,0 +1,40 @@
+---
+title: "Performance Budgets that Keep Products Fast"
+summary: "Set and enforce budgets so your app stays <2s on 4G and feels instant."
+publishedAt: "2025-09-05"
+tag: "UX Engineering"
+---
+
+## Why budgets
+
+What gets measured gets maintained. Budgets align design, engineering, and product.
+
+## Budget template
+
+<CodeBlock
+  marginBottom="16"
+  highlight="4-8"
+  codes={[
+    {
+      code:
+`{
+  "LCP_ms": 1800,
+  "INP_ms": 150,
+  "bundle_kb": 180,
+  "img_kb": 300,
+  "api_p95_ms": 400,
+  "error_rate_pct": 0.5
+}`,
+      language: "json",
+      label: "perf/budget.json"
+    }
+  ]}
+/>
+
+## Guardrails
+
+- CI check fails if budgets regress
+- Per-route RUM dashboards
+- Image/CDN policies baked into the design system
+
+---

@@ -1,0 +1,41 @@
+---
+title: "Data to Decisions: Event Models that Actually Scale"
+summary: "Designing an event schema once so analytics, product, and AI use the same source of truth."
+publishedAt: "2025-09-03"
+tag: "Data"
+---
+
+## Event design rules
+
+- Stable names, explicit versioning
+- User, session, org IDs every time
+- Nullable, not missing
+
+## Example schema
+
+<CodeBlock
+  marginBottom="16"
+  highlight="6,12"
+  codes={[
+    {
+      code:
+`// events.ts
+type Identify = { type:"identify"; userId:string; orgId?:string; traits?:Record<string,any> }
+type TrackPurchase = {
+  type:"track"; event:"PurchaseCompleted"; userId:string; orgId:string;
+  properties:{ amount:number; currency:string; items:number; coupon?:string }
+  context:{ ua?:string; ip?:string; }
+  v:1
+}`,
+      language: "ts",
+      label: "analytics/events.ts"
+    }
+  ]}
+/>
+
+## Warehouse contract
+
+- CDC or batch to a warehouse (BigQuery/Snowflake)
+- dbt models produce clean marts for dashboards and ML
+
+---

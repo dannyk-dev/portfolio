@@ -1,0 +1,48 @@
+---
+title: "Build vs. Buy: A Simple Cost–Benefit Calculator"
+summary: "A pragmatic way to decide when custom software beats SaaS stacking—without hand-waving."
+publishedAt: "2025-09-07"
+tag: "Software Strategy"
+---
+
+## Decision drivers
+
+- Uniqueness of workflow
+- Total cost over 24–36 months
+- Need for differentiated UX or data ownership
+
+## Calculator
+
+<CodeBlock
+  marginBottom="16"
+  highlight="9-16"
+  codes={[
+    {
+      code:
+`// buildVsBuy.ts
+type Inputs = {
+  seats: number; saasMonthly: number; pluginsMonthly: number;
+  buildCapex: number; monthlyOps: number; months: number;
+};
+export function buildVsBuy(x: Inputs) {
+  const buy = (x.saasMonthly + x.pluginsMonthly) * x.months;
+  const build = x.buildCapex + (x.monthlyOps * x.months);
+  const delta = buy - build;
+  return { buy, build, delta, roi: delta / Math.max(1, build) };
+}
+// Example: buildVsBuy({seats:40, saasMonthly:1200, pluginsMonthly:300, buildCapex:60000, monthlyOps:800, months:24})`,
+      language: "ts",
+      label: "src/utils/buildVsBuy.ts"
+    }
+  ]}
+/>
+
+## When to buy
+
+- Commodity workflows, small team, low compliance needs
+
+## When to build
+
+- Process is core to your value, or you’re paying for workarounds across 3+ tools
+
+---

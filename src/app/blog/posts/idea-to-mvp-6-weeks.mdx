@@ -1,0 +1,60 @@
+---
+title: "From Idea to MVP in 6 Weeks"
+summary: "A practical blueprint we use to turn concepts into revenue-generating MVPs—fast, predictable, and business-first."
+publishedAt: "2025-09-08"
+tag: "Studio Playbook"
+---
+
+## Why this matters
+
+Speed to learning beats speed to launch. Our MVP process compresses risk by validating real demand in weeks, not months.
+
+## The 6-week plan
+
+| Week | Focus | Output |
+| --- | --- | --- |
+| 1 | Discovery + success metrics | Scope, risks, KPI baseline |
+| 2 | UX flows + data model | Clickable prototype, schema |
+| 3 | Foundations | CI/CD, auth, design system |
+| 4 | Core features | Tested vertical slice |
+| 5 | Integrations | Payments, email, analytics |
+| 6 | UAT + launch | Pilot, feedback loop |
+
+## MVP acceptance gates
+
+- One clear revenue or usage KPI
+- A vertical slice that exercises auth, data, UI, and one critical flow
+- Rollback + logging + analytics in place
+
+## Scope contract
+
+<CodeBlock
+  marginBottom="16"
+  highlight="2,6,12"
+  codes={[
+    {
+      code:
+`# scope.yaml
+kpi:
+  - name: trial_signups
+    target: 30 in 30 days
+must_have:
+  - auth_email_password
+  - payment_stripe_checkout
+  - dashboard_mrr_chart
+nice_to_have:
+  - oauth_google
+  - webhooks_zapier`,
+      language: "yaml",
+      label: "docs/scope.yaml"
+    }
+  ]}
+/>
+
+## Launch checklist
+
+- ✅ Error budgets defined
+- ✅ Synthetic monitoring running
+- ✅ Analytics events verified against KPIs
+
+---
