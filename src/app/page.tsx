@@ -18,6 +18,8 @@ import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 import styles from "@/components/Header.module.scss";
+import { Faq, FAQ } from "@/components/about/Faq";
+import { faq } from "@/resources/content";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -145,6 +147,9 @@ export default function Home() {
         </Column>
       )}
       <Projects range={[2]} />
+      <RevealFx>
+        <Faq items={faq.questions} title={faq.title}  />
+      </RevealFx>
       <Mailchimp />
     </Column>
   );

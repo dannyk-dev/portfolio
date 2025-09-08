@@ -5,6 +5,7 @@ import { render } from "@react-email/render";
 
 // biome-ignore lint/style/noNonNullAssertion: <explanation>
 const resend = new Resend(process.env.RESEND_API_KEY!);
+
 const FROM = process.env.EMAIL_FROM || "Kardan Studio <no-reply@kardan.dev>";
 const INTERNAL_NOTIFY = process.env.LEADS_NOTIFY_TO || "kruger.dkk@gmail.com";
 
