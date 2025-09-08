@@ -103,7 +103,7 @@ export const Mailchimp: React.FC<React.ComponentProps<typeof Column>> = ({ ...fl
 			message: data.message.trim(),
 		};
 
-		const res = await fetch('/api/leads', {
+		const res = await fetch('/api/leads/capture', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(payload),
@@ -246,32 +246,39 @@ export const Mailchimp: React.FC<React.ComponentProps<typeof Column>> = ({ ...fl
 
 					{/* Industry + Service type */}
 					<Row gap='8' s={{ direction: 'column' }} fillWidth>
+						<Row direction='column' fillWidth>
 							<Select
 								id='mc_INDUSTRY'
+								value={form.getValues().industry}
+								onSelect={(country) => form.setValue('industry', country)}
 								label={contact.labels.industry}
 								options={INDUSTRIES.map((item) => ({ label: item, value: item }))}
+								prefix='chevronDwn'
+                searchable
 							/>
 							{errors.industry && (
 								<Text onBackground='neutral-strong' variant='body-default-s'>
 									Please select your industry.
 								</Text>
 							)}
+						</Row>
 
-						{/* <div className='grid gap-2'> */}
+						<Row direction='column' fillWidth>
 							<Select
-								{...register('serviceType', { required: true })}
+								value={form.getValues().serviceType}
+								searchable
 								onSelect={(country) => form.setValue('serviceType', country)}
 								id='mc_SERVICE'
 								label={contact.labels.serviceType}
 								options={SERVICES.map((item) => ({ label: item, value: item }))}
-                prefix='chevronDwn'
+								prefix='chevronDwn'
 							/>
 							{errors.serviceType && (
 								<Text onBackground='neutral-strong' variant='body-default-s'>
 									Please select a service.
 								</Text>
 							)}
-						{/* </div> */}
+						</Row>
 					</Row>
 
 					{serviceType === 'Other' && (

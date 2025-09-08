@@ -38,6 +38,8 @@ export async function POST(req: Request) {
 		if (err?.issues) {
 			return NextResponse.json({ ok: false, errors: err.issues }, { status: 400 });
 		}
+
+    console.log(err);
 		return NextResponse.json({ ok: false, error: msg }, { status: 500 });
 	}
 }
