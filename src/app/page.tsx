@@ -18,7 +18,7 @@ import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 import styles from "@/components/Header.module.scss";
-import { Faq, FAQ } from "@/components/about/Faq";
+import { Faq, } from "@/components/about/Faq";
 import { faq } from "@/resources/content";
 
 export async function generateMetadata() {
