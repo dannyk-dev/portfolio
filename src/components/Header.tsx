@@ -16,8 +16,8 @@ import {
 } from "@once-ui-system/core";
 
 import { routes, display, person, about, blog, work, gallery } from "@/resources";
-import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
+import { AnimatedThemeToggler } from "@/components/ThemeToggleAnimated";
 
 type TimeDisplayProps = {
   timeZone: string;
@@ -185,7 +185,7 @@ export const Header = () => {
               {display.themeSwitcher && (
                 <>
                   <Line background="neutral-alpha-medium" vert maxHeight="24" />
-                  <ThemeToggle />
+                  <AnimatedThemeToggler />
                 </>
               )}
             </Row>
