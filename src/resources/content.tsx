@@ -5,7 +5,7 @@ const person: Person = {
 	firstName: 'Daniel',
 	lastName: 'Kruger',
 	name: 'kardan.dev',
-	role: 'Fullstack Software Engineer',
+	role: 'Fullstack Developer',
 	avatar: '/images/logo.jpg',
 	email: 'contact@kardan.dev',
 	location: 'America/Sao_Paulo',
@@ -15,15 +15,15 @@ const person: Person = {
 const newsletter: Newsletter = {
 	display: true,
 	title: <>Subscribe to updates from {person.name}</>,
-	description: <>Short, practical notes on websites, apps, and digital growth for business owners.</>,
+	description: <>Engineering notes on React/Next.js, performance, testing, and building SaaS products.</>,
 };
 
 const contact: Contact = {
-	title: 'Let’s talk about your project',
-	description: 'Share a few details and I’ll reply within one business day with next steps.',
+	title: 'Let’s build something great',
+	description: 'Tell me about your product and goals. I usually reply within one business day with next steps.',
 	labels: {
 		clientName: 'Full name',
-		companyName: 'Company name',
+		companyName: 'Company (optional)',
 		industry: 'Industry',
 		isCompany: 'I’m contacting on behalf of a company',
 		serviceType: 'What do you need?',
@@ -41,18 +41,18 @@ const home: Home = {
 	path: '/',
 	image: '/images/og/home.jpg',
 	label: 'Home',
-	title: `${person.name} — Independent Software Studio`,
+	title: `${person.name} — Frontend Engineering Portfolio`,
 	description:
-		'A Brazil-based studio helping founders and teams launch clear, effective software: business websites, online stores, and custom web apps. Right-sized delivery with a single point of contact.',
-	headline: <>Tech that move your business forward</>,
+		'Fullstack software developer focused on SaaS, React/Next.js, TypeScript, and performance. I ship fast, reliable, and accessible interfaces.',
+	headline: <>I build fast, scalable software</>,
 	featured: {
 		display: true,
 		title: (
 			<Row gap='12' vertical='center'>
-				<strong className='ml-4'>kardan.dev</strong>
+				<strong className='ml-4'>Selected Work</strong>
 				<Line background='brand-alpha-strong' vert height='20' />
 				<Text marginRight='4' onBackground='brand-medium'>
-					Featured Project
+					Case Study
 				</Text>
 			</Row>
 		),
@@ -60,8 +60,8 @@ const home: Home = {
 	},
 	subline: (
 		<>
-			Work directly with an independent developer. When a project needs extra hands, I scale with a trusted network.
-			Clear scope, fixed timelines, measurable outcomes—without agency overhead.
+			React/Next.js, TypeScript, Tailwind UI engineering, comprehensive testing, and performance optimization. I work
+			independently or embed with teams to move product metrics.
 		</>
 	),
 };
@@ -70,19 +70,17 @@ const about: About = {
 	path: '/about',
 	label: 'About',
 	title: `About – ${person.name}`,
-	description: `How ${person.name} plans, builds, and supports modern websites and applications with a flexible, on-demand team model.`,
+	description: 'How I design, build, and scale modern web apps with performance-first thinking.',
 	tableOfContent: { display: true, subItems: false },
 	avatar: { display: true },
 	calendar: { display: true, link: 'https://cal.com/kardan' },
 	intro: {
 		display: true,
-		title: 'Who I work with',
+		title: 'How I work',
 		description: (
 			<>
-				I help small and mid-sized businesses, founders, and marketing teams turn ideas into working software. The
-				studio is lean by design: simple projects are delivered directly; larger initiatives add specialist support
-				where it matters. You get senior attention, clear communication, and a result that serves the business—not the
-				other way around.
+				I partner with founders and teams to deliver measurable outcomes: faster apps, cleaner architectures, and a
+				healthier codebase. I keep scope clear, automate testing, and use performance budgets to protect UX as you grow.
 			</>
 		),
 	},
@@ -93,54 +91,110 @@ const about: About = {
 			{
 				company: 'kardan.dev',
 				timeframe: '2022 – Present',
-				role: 'Independent Software Studio',
+				role: 'Independent Contractor and Consultant',
 				achievements: [
-					'Launched and maintained SaaS products used across multiple industries.',
-					'Delivered corporate websites, online stores, and internal web tools with measurable business results.',
-					'Scaled delivery through a vetted network of designers and developers when projects required it.',
+					'Led frontend architecture for multiple SaaS products (multi-tenant, RBAC, org/teams).',
+					'Improved Core Web Vitals and conversion through code-splitting, caching, and runtime audits.',
+					'Built design-system driven UIs with Tailwind, strong typing with TypeScript, and full test coverage.',
 				],
 				images: [{ src: '/images/projects/saas-product.jpg', alt: 'SaaS product interface', width: 16, height: 9 }],
 			},
+			{
+				company: 'CloudCRM / Pyxpay',
+				timeframe: '2024 – Present',
+				role: 'Fullstack software developer',
+				achievements: [
+					'Led and developed migrating a 7 year old legacy front-end with modern stack and increased performance optimizations by 60% and security. This included improved DX and UX, with interactive storybook documentation and typescript implementations',
+					'Contributed to high level FinTech software and products. This includes multi-currency systems, multi-bank integrations, and payment gateway integrations',
+				],
+				images: [],
+			},
+			{
+				company: 'CrowTech',
+				timeframe: '[2023 – 2024]',
+				role: 'Fullstack Software Developer',
+				achievements: [
+					'Handled large ecommerce platforms in paraguai for over 30 clients. This included interacting with clients, consulting and developing requested features.',
+					'Implemented complex cache systems to properly filter and fetch data at a large scale of over 50K records.',
+					'Contributed to developing automated backup systems to ensure data security and storage',
+					'Refactored outdated front-ends made in Laravel + Blade with a cleaner UI and improved DX.',
+				],
+				images: [],
+			},
 		],
 	},
-	studies: { display: false, title: 'Studies', institutions: [] },
+	studies: {
+		display: false,
+		title: 'Studies',
+		institutions: [
+			{
+				name: 'UniAmerica',
+				description: 'Software engineering - foz do iguacu',
+			},
+		],
+	},
 	technical: {
 		display: true,
-		title: 'Services',
+		title: 'Skills',
 		skills: [
 			{
-				title: 'Business Websites & Landing Pages',
-				description: <>Clear messaging, fast load times, and thoughtful design aimed at inquiries and sales.</>,
+				title: 'React / Next.js',
+				description: <>App architecture, server/client components, routing, data-fetching, and SSR/SSG strategies.</>,
 				tags: [
-					{ name: 'Next.js', icon: 'nextjs' },
-					{ name: 'Vercel', icon: 'vercel' },
-				],
-				images: [],
-			},
-			{
-				title: 'Online Stores',
-				description: <>Custom storefronts with secure payments, smooth checkout, and practical operations support.</>,
-				tags: [
-					{ name: 'Shopify', icon: 'shopify' },
-					{ name: 'Stripe', icon: 'stripe' },
-				],
-				images: [],
-			},
-			{
-				title: 'Custom Web Applications',
-				description: <>Internal tools, portals, and SaaS—built around your process and goals, not templates.</>,
-				tags: [
-					{ name: 'Supabase', icon: 'supabase' },
 					{ name: 'React', icon: 'react' },
+					{ name: 'Next.js', icon: 'nextjs' },
+					{ name: 'SSR' },
+					{ name: 'Advanced caching' },
 				],
 				images: [],
 			},
 			{
-				title: 'Extended Services',
+				title: 'TypeScript',
+				description: <>Type-safe APIs, complex generics, utility types, and strict configs for robust DX.</>,
+				tags: [{ name: 'TypeScript', icon: 'typescript' }],
+				images: [],
+			},
+			{
+				title: 'Tailwind CSS & UI Engineering',
+				description: <>Design systems, accessibility, component APIs, and responsive layouts with semantic HTML.</>,
+				tags: [
+					{ name: 'Tailwind', icon: 'tailwind' },
+					{ name: 'Chakra UI' },
+					{ name: 'Shadcn/UI' },
+					{ name: 'HeroUI' },
+				],
+				images: [],
+			},
+			{
+				title: 'Testing (e2e & Unit)',
+				description: <>Playwright/Cypress, Jest, Testing Library, and CI setup to catch regressions early.</>,
+				tags: [{ name: 'Playwright' }, { name: 'Cypress' }, { name: 'Jest' }],
+				images: [],
+			},
+			{
+				title: 'Performance Engineering',
+				description: <>Profiling, code-splitting, caching, CDN strategy, and Core Web Vitals budgeting.</>,
+				tags: [{ name: 'Lighthouse' }, { name: 'Web Vitals' }],
+				images: [],
+			},
+			{
+				title: 'RPC & Security Patterns',
 				description: (
-					<>Through partners: branding, design, social media, and consulting to support your launch and growth.</>
+					<>Type-safe RPC (e.g., tRPC-style), auth, RBAC, and multi-tenant boundaries for Nextjs applications.</>
 				),
-				tags: [{ name: 'Branding' }, { name: 'Consulting' }, { name: 'Marketing' }],
+				tags: [{ name: 'RPC' }, { name: 'RBAC' }, { name: 'TRPC' }],
+				images: [],
+			},
+			{
+				title: 'Python',
+				description: <>Automation, data scripts, and service glue for product workflows.</>,
+				tags: [{ name: 'Python' }, { name: 'Flask' }, { name: 'Pandas' }, { name: 'FastApi' }, { name: 'MatPlot' }],
+				images: [],
+			},
+			{
+				title: 'PHP / Laravel',
+				description: <>APIs and services that integrate with modern React/Next.js front-ends.</>,
+				tags: [{ name: 'Laravel' }, { name: 'APIs' }, { name: 'Livewire' }],
 				images: [],
 			},
 		],
@@ -150,22 +204,22 @@ const about: About = {
 const blog: Blog = {
 	path: '/blog',
 	label: 'Blog',
-	title: 'Ideas on digital growth',
-	description: `Plain-language insights from ${person.name} on launching websites and apps, improving performance, and turning traffic into results.`,
+	title: 'Engineering Notes',
+	description: `Hands-on articles from ${person.name} about building and scaling modern front-ends, testing, and performance.`,
 };
 
 const work: Work = {
 	path: '/work',
 	label: 'Work',
 	title: `Case Studies – ${person.name}`,
-	description: `Selected projects and outcomes—from quick wins to multi-phase builds.`,
+	description: 'Selected projects and outcomes—performance wins, UI engineering at scale, and SaaS foundations.',
 };
 
 const gallery: Gallery = {
 	path: '/gallery',
 	label: 'Gallery',
 	title: `Visual Showcase – ${person.name}`,
-	description: 'A look at interfaces and brand moments from recent projects.',
+	description: 'Interfaces, components, and brand moments from recent builds.',
 	images: [
 		{ src: '/images/gallery/horizontal-1.jpg', alt: 'image', orientation: 'horizontal' },
 		{ src: '/images/gallery/vertical-4.jpg', alt: 'image', orientation: 'vertical' },
@@ -177,13 +231,13 @@ const gallery: Gallery = {
 const faq: FAQ = {
 	path: '/faq',
 	label: 'FAQ',
-	title: `Frequently Asked Questions`,
-	description: `Straight answers about scope, timing, and collaboration.`,
+	title: 'Frequently Asked Questions',
+	description: 'Straight answers about collaboration, scope, and timelines.',
 	questions: [
 		{
 			question: 'Who will I work with?',
 			answer:
-				'You work directly with me. If a project needs extra capacity, I bring in trusted specialists and remain your single point of contact.',
+				'You work directly with me. For larger scopes, I bring in trusted specialists while staying your single point of contact.',
 		},
 		{
 			question: 'How do projects start?',
@@ -193,21 +247,20 @@ const faq: FAQ = {
 		{
 			question: 'What do you deliver?',
 			answer:
-				'Websites that convert, online stores that sell, and web applications that simplify operations. We measure success by business outcomes.',
+				'High-quality front-ends, design-system driven UIs, and measurable performance improvements. I prioritize maintainability and DX.',
 		},
 		{
 			question: 'Do you work with clients outside Brazil?',
-			answer: 'Yes. Most work is remote with structured communication and regular check-ins across time zones.',
+			answer: 'Yes. I work remotely with async updates and scheduled check-ins across time zones.',
 		},
 		{
 			question: 'Can you support after launch?',
 			answer:
-				'Yes. I offer ongoing improvements, content and product updates, and performance reviews to keep results moving in the right direction.',
+				'Yes. I offer iterative improvements, test coverage expansion, and performance reviews to keep shipping velocity high.',
 		},
 		{
 			question: 'How do we get started?',
-			answer:
-				'Email contact@kardan.dev or book a call. After a short conversation, I’ll send a simple plan and next steps.',
+			answer: 'Email contact@kardan.dev or book a call. I’ll reply with a simple plan and next steps.',
 		},
 	],
 };
