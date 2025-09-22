@@ -46,7 +46,7 @@ export default async function RootLayout({
     >
       <head>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8970491671801597"
-     crossorigin="anonymous" defer></script>
+      ></script>
         <script
           id="theme-init"
           // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
